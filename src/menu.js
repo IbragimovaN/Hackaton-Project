@@ -1,6 +1,9 @@
 import {Menu} from './core/menu';
 import { BackgroundModule } from './modules/background.module';
-import {GameModule} from './modules/GameModule';
+import {AudioRandomModule} from './modules/AudioRandomModule';
+import {CountDownTimerModule} from './modules/countdown-timer.module'
+import {GameModule} from './modules/game.module';
+import {ClicksModule} from './modules/clicks.module'
 
 export class ContextMenu extends Menu {
     constructor(selector,blocks) {
@@ -12,8 +15,11 @@ export class ContextMenu extends Menu {
             listItem.dataset.type = item.id;
             listItem.innerText = item.text;
             this.el.append(listItem);
-            this.backgroundeModule = new BackgroundModule(item.id, item.text)
+            this.backgroundeModul = new BackgroundModule(item.id, item.text)
             this.gameModule = new GameModule(item.id, item.text)
+            this.audioRandomModule = new AudioRandomModule(item.id, item.text)
+            this.countDownTimerModule = new CountDownTimerModule(item.id, item.text)
+            this.clicksModule = new ClicksModule(item.id, item.text)
         
         }) 
         this.el.className = 'menu hidden'
@@ -45,9 +51,15 @@ export class ContextMenu extends Menu {
             let currentItem = event.target
             let currentItemId = currentItem.dataset.type
             if (currentItemId == 1){
-                this.backgroundeModule.trigger()
-            } else if (currentItemId == 5){
-                this.GameModule.trigger()
+                this.backgroundModule.trigger()
+            } else if (currentItemId == 2){
+                this.audioRandomModule.trigger()
+            }else if(currentItemId == 3){
+                this.countDownTimerModule.trigger()
+            } else if(currentItemId == 3){
+                this.clicksModule.trigger()
+            }else if (currentItemId == 5){
+                this.gameModule.trigger()
             }
         })
     }
