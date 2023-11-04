@@ -45,7 +45,7 @@ body {
     background: #343434;
 }
 
-/*начало: стили для модуля: Таймер обратного отсчета*/
+/*начало: стили для модуля Таймер обратного отсчета*/
 .timer-block {
     display: flex;
     flex-direction: column;
@@ -53,25 +53,27 @@ body {
     text-align: center;
     background: linear-gradient(90deg, #86aa04 0%, #ce6723 100%);
     width: 500px;
-  }
+}
   
 .timer-block-title {
     color: #eb0d36;
     font-size: 3rem;
     line-height: 3rem;
-    margin-bottom: 5px;
+    margin: 10px;
   }
   
 .timer-block-text {
     color: var(--text-color);
     font-size: 1.5rem;
     line-height: 2.5rem;
+    margin-bottom: 10px;
   }
   
 .timer-block-count {
     color: #eb0d36;;
     font-size: 5rem;
     font-weight: bold;
+    margin: 10px;
   }
     
 .timer-block-input {
@@ -89,7 +91,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin: 15px;
+    margin: 10px;
   }
   
 .timer-block-button {
@@ -108,4 +110,4 @@ body {
     border: 2px solid #eb0d36;
     color: #eb0d36;
   }
-/* конец: стили для модуля: Таймер обратного отсчета*/  
+/* конец: стили для модуля Таймер обратного отсчета*/  

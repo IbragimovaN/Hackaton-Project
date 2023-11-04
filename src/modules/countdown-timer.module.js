@@ -1,11 +1,17 @@
 import {Module} from '../core/module'
-//import '../css/timer.css'
 
 export class CountDownTimerModule extends Module {
-  constructor(type = 'timer', text = 'Таймер отсчета') {
-        super(type, text)
+  constructor(type = 'timer', text = 'Таймер обратного отсчета') {
+        super(type, text);
       }
- 
+  trigger() {
+    if (document.querySelector('#timer')) {
+      alert('Таймер уже включен!');
+      return;
+    }
+    this.renderTimerBlock();
+  }      
+
   renderTimerBlock() {
     this.timerContainer = document.createElement('div');
     this.timerContainer.className = 'timer-block';
@@ -13,7 +19,7 @@ export class CountDownTimerModule extends Module {
         
     const titleTimerBlock = document.createElement('h1');
     titleTimerBlock.className = 'timer-block-title';
-    titleTimerBlock.textContent = 'Привет, друг!'
+    titleTimerBlock.textContent = 'Привет, друг!';
         
     const textTimerBlock = document.createElement('p');
     textTimerBlock.className = 'timer-block-text';
@@ -31,45 +37,48 @@ export class CountDownTimerModule extends Module {
     const startBtnTimerBlock = document.createElement('button');
     startBtnTimerBlock.className = 'timer-block-button';
     startBtnTimerBlock.textContent = 'Погнали!';
-    startBtnTimerBlock.addEventListener('click', () => this.startTimer(inputTimerBlock));
+    startBtnTimerBlock.addEventListener('click', () => this.#startTimer(inputTimerBlock));
         
     const stopBtnTimerBlock = document.createElement('button');
     stopBtnTimerBlock.className = 'timer-block-button';
     stopBtnTimerBlock.textContent = 'Не хочу!';
-    stopBtnTimerBlock.addEventListener('click', () => this.stopTimer(this.timerContainer));
+    stopBtnTimerBlock.addEventListener('click', () => this.#stopTimer(this.timerContainer));
         
     divButtonsTimerBlock.append(startBtnTimerBlock, stopBtnTimerBlock);
     this.timerContainer.append(titleTimerBlock, textTimerBlock, inputTimerBlock, divButtonsTimerBlock);
     document.body.append(this.timerContainer);
   }
 
-  startTimer(input) {
+  #startTimer(input) {
     let countTime = parseInt(input.value);
-    this.timerContainer.innerHTML = '';
+    this.timerContainer.textContent = '';
     const counter = document.createElement('h1');
-    counter.innerText = `${countTime}`;
+    counter.textContent = `${countTime}`;
     counter.className = 'timer-block-count';
-
+    const textMotivation = document.createElement('h4');
+    textMotivation.textContent = 'Пока идёт таймер. Ты можешь сделать, например, планку :)'
+    textMotivation.className = 'timer-block-text';
+   
     const timeCounter = setInterval(() => {
       if (countTime >= 0) {
-        counter.innerText = `${countTime - 1}`;
+        counter.textContent = `${countTime - 1}`;
       }
-
       countTime--;
       if (countTime === -1) {
-        counter.innerText = 'Ура! Счёт закончен'
+        counter.textContent = 'Ура! Ты cупер!';
+        textMotivation.textContent = '';
       }
       if (countTime <= -4) {
-        clearInterval(timeCounter)
-        this.stopTimer(this.timerContainer)
+        clearInterval(timeCounter);
+        this.#stopTimer(this.timerContainer);
       }
     }, 1000)
 
-    this.timerContainer.append(counter)
+    this.timerContainer.append(counter, textMotivation);
   }
 
-  stopTimer(element) {
-    element.innerHTML = ''
-    element.remove()
+  #stopTimer(element) {
+    element.textContent = '';
+    element.remove();
   }
 }
