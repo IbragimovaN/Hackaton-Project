@@ -45,6 +45,7 @@ body {
     background: #343434;
 }
 
+/*стилизация игры*/
 .game {
     width: 600px;
     height: 200px;
@@ -52,6 +53,7 @@ body {
     margin: auto;
 }
 
+/*стилизация дино*/
 #dino {
     width: 50px;
     height: 50px;
@@ -61,6 +63,7 @@ body {
     top: 150px;
 }
 
+/*стилизация кактуса*/
 #cactus {
     width: 20px;
     height: 40px;
@@ -72,6 +75,7 @@ body {
     animation: cactusMov 1s infinite linear;
 }
 
+/*для анимации кактуса*/
 @keyframes cactusMov {
     0% {
         left: 580px;
@@ -81,6 +85,7 @@ body {
     }
 }
 
+/*для анимации прыжка дино*/
 .jump {
     animation: jump 0.5s linear;
 }

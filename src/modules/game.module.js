@@ -1,4 +1,4 @@
-import { Module } from '../core/module';
+import { Module } from '../core/module.js';
 
 export class GameModule extends Module {
   constructor(type, text) {
@@ -6,13 +6,9 @@ export class GameModule extends Module {
   }
 
   trigger() {
-    //this.screen.addEventListener("click", (e) => {
-    //this.numderOfClick += 1;
-    
     if (isGameOver) {
       showGame();
     }
-  //});
   }
 }
 
