@@ -1,7 +1,7 @@
 import {Menu} from './core/menu';
 import { BackgroundModule } from './modules/background.module';
 // import {AudioRandomModule} from './modules/AudioRandomModule';
-// import {CountDownTimerModule} from './modules/countdown-timer.module'
+import {CountDownTimerModule} from './modules/countdown-timer.module'
 // import {GameModule} from './modules/game.module';
 // import {ClicksModule} from './modules/clicks.module'
 
@@ -18,7 +18,7 @@ export class ContextMenu extends Menu {
             this.backgroundModule = new BackgroundModule(item.id, item.text)
             // this.gameModule = new GameModule(item.id, item.text)
             // this.audioRandomModule = new AudioRandomModule(item.id, item.text)
-            // this.countDownTimerModule = new CountDownTimerModule(item.id, item.text)
+            this.countDownTimerModule = new CountDownTimerModule(item.id, item.text)
             // this.clicksModule = new ClicksModule(item.id, item.text)
         
         }) 

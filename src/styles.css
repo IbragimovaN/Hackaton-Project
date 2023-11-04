@@ -44,3 +44,70 @@ body {
 .menu .menu-item:hover {
     background: #343434;
 }
+
+/*начало: стили для модуля Таймер обратного отсчета*/
+.timer-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(90deg, #86aa04 0%, #ce6723 100%);
+    width: 500px;
+}
+  
+.timer-block-title {
+    color: #eb0d36;
+    font-size: 3rem;
+    line-height: 3rem;
+    margin: 10px;
+  }
+  
+.timer-block-text {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+.timer-block-count {
+    color: #eb0d36;;
+    font-size: 5rem;
+    font-weight: bold;
+    margin: 10px;
+  }
+    
+.timer-block-input {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px 5px 5px 10px;
+  }
+  
+.timer-block-div-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+  }
+  
+.timer-block-button {
+    border-radius: 10px;
+    border: 2px solid #c0c0c0;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: bold;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+  }
+  
+.timer-block-button:hover {
+    border: 2px solid #eb0d36;
+    color: #eb0d36;
+  }
+/* конец: стили для модуля Таймер обратного отсчета*/  
