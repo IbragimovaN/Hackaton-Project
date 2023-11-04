@@ -1,73 +1,54 @@
-import {Menu} from './core/menu'
-
-class ContextMenuRender {
-    constructor(){
-        this.menu = document.createElement('ul');
-        this.menu.className = 'menu hidden'; 
-    
-    }
-
-    render(){
-        const listItem1 = document.createElement('li')
-        listItem1.className = 'menu-item';
-        listItem1.textContent = 'блок 1';
-
-        const listItem2 = document.createElement('li')
-        listItem2.className = 'menu-item';
-        listItem2.textContent = 'блок 2';
-
-        const listItem3 = document.createElement('li')
-        listItem3.className = 'menu-item';
-        listItem3.textContent = 'блок 3';
-
-        const listItem4 = document.createElement('li')
-        listItem4.className = 'menu-item';
-        listItem4.textContent = 'блок 4';
-
-        const listItem5 = document.createElement('li')
-        listItem5.className = 'menu-item';
-        listItem5.textContent = 'блок 4';
-
-        this.menu.append(listItem1, listItem2, listItem3, listItem4, listItem5);
-        document.body.append(this.menu)
-        return this.menu
-    }
-}
-
-const ContextMenuObj = new ContextMenuRender
-const menuHTML = ContextMenuObj.render()
-
+import {Menu} from './core/menu';
+import { BackgroundModule } from './modules/background.module';
+import {GameModule} from './modules/GameModule';
 
 export class ContextMenu extends Menu {
-    constructor(menuHTML) {
-        super(menuHTML)
+    constructor(selector,blocks) {
+        super(selector)
+
+        blocks.forEach(item => {
+            let listItem = document.createElement('li');
+            listItem.className = 'menu-item';
+            listItem.dataset.type = item.id;
+            listItem.innerText = item.text;
+            this.el.append(listItem);
+            this.backgroundeModule = new BackgroundModule(item.id, item.text)
+            this.gameModule = new GameModule(item.id, item.text)
+        
+        }) 
+        this.el.className = 'menu hidden'
+        
     }
     open(){
         document.addEventListener('contextmenu', (event) =>{
             event.preventDefault();
-            console.log(event)
-            menuHTML.style.top = `${event.clientY}px`
-            menuHTML.style.left = `${event.clientX}px`
-            menuHTML.classList.remove('hidden')
+            this.el.style.top = `${event.clientY}px`
+            this.el.style.left = `${event.clientX}px`
+            this.el.classList.remove('hidden')
         })
         
     }
     close(){
         document.addEventListener('click', (event) =>{
             if(event.button !== 2){
-                menuHTML.classList.add('hidden')
+                this.el.classList.add('hidden')
             }
         })
         
     }
+    render(){
+            document.body.append(this.el)
+    
+    }
+    add(){
+        this.el.addEventListener('click', (event) =>{
+            let currentItem = event.target
+            let currentItemId = currentItem.dataset.type
+            if (currentItemId == 1){
+                this.backgroundeModule.trigger()
+            } else if (currentItemId == 5){
+                this.GameModule.trigger()
+            }
+        })
+    }
 }
-
-
-// function renderMenu (){
-//     const body = document.querySelector('body')
-//     const menuWindow = document.createElement('div')
-//     menuWindow.style.border = '5px solid black';
-//     menuWindow.innerText = 'допустим Тут будет меню'
-//     body.append(menuWindow)
-//     // return menuWindow
-// }
