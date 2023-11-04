@@ -1,5 +1,6 @@
 import {Menu} from './core/menu';
 import { BackgroundModule } from './modules/background.module';
+import {GameModule} from './modules/GameModule';
 
 export class ContextMenu extends Menu {
     constructor(selector,blocks) {
@@ -12,6 +13,7 @@ export class ContextMenu extends Menu {
             listItem.innerText = item.text;
             this.el.append(listItem);
             this.backgroundeModule = new BackgroundModule(item.id, item.text)
+            this.gameModule = new GameModule(item.id, item.text)
         
         }) 
         this.el.className = 'menu hidden'
@@ -34,15 +36,8 @@ export class ContextMenu extends Menu {
         })
         
     }
-    render(blocks){
-        // blocks.forEach(item => {
-        //     let listItem = document.createElement('li');
-        //     listItem.className = 'menu-item';
-        //     listItem.dataset.type = item.id;
-        //     listItem.innerText = item.text;
-        //     this.el.append(listItem);
+    render(){
             document.body.append(this.el)
-        // }) 
     
     }
     add(){
@@ -51,6 +46,8 @@ export class ContextMenu extends Menu {
             let currentItemId = currentItem.dataset.type
             if (currentItemId == 1){
                 this.backgroundeModule.trigger()
+            } else if (currentItemId == 5){
+                this.GameModule.trigger()
             }
         })
     }
