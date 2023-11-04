@@ -17,7 +17,7 @@ export class ClicksModule extends Module {
           this.blockNumderOfClick.style.position = "fixed";
           this.screen.setAttribute("onmousedown", "return false");
           this.screen.setAttribute("onselectstart", "return false");
-          this.blockNumderOfClick.textContent = ` ${this.numderOfClick} `;
+          this.blockNumderOfClick.textContent = `Вы кликнули ${this.numderOfClick} раз`;
     
           this.blockNumderOfClick.style.top = `${
             (this.screen.offsetHeight - this.blockNumderOfClick.offsetHeight) / 2
