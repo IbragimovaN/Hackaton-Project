@@ -3,7 +3,7 @@ import {Module} from '../core/module'
 export class ClicksModule extends Module {
     constructor(type, text) {
         super(type, text);
-        this.numderOfClick = 0;
+        this.numderOfClick = -1;
         this.screen = document.querySelector("body");
         this.blockNumderOfClick = document.createElement("div");
         this.screen.append(this.blockNumderOfClick);
@@ -11,6 +11,12 @@ export class ClicksModule extends Module {
       trigger() {
         this.screen.addEventListener("click", (e) => {
           this.numderOfClick ++;
+          this.blockNumderOfClick.style.fontSize = Math.floor(Math.random() * 1920 / 3) + "px";
+          this.blockNumderOfClick.style.position = "fixed";
+          this.screen.style.backgroundColor = "#DEDBFB";
+          this.screen.setAttribute("onmousedown", "return false");
+          this.screen.setAttribute("onselectstart", "return false");
+          this.blockNumderOfClick.textContent = `${this.numderOfClick} `;
         });
         setTimeout(() => {
           this.blockNumderOfClick.style.fontSize = "100px";
@@ -29,5 +35,8 @@ export class ClicksModule extends Module {
         setTimeout(() => {
           this.blockNumderOfClick.remove();
         }, 6000);
+        setTimeout(() => {
+            location.reload();
+                      }, 6001);
       }
     }
