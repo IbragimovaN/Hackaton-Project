@@ -10,7 +10,7 @@ export class ClicksModule extends Module {
       }
       trigger() {
         this.screen.addEventListener("click", (e) => {
-          this.numderOfClick += 1;
+          this.numderOfClick ++;
         });
         setTimeout(() => {
           this.blockNumderOfClick.style.fontSize = "100px";
