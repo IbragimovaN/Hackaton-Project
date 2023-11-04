@@ -20,8 +20,12 @@ body {
     width: 150px;
     background: #1b1a1a;
     border-radius: 5px;
-    display: none;
     list-style: none;
+    color: #eee;
+}
+
+.hidden{
+    display: none;
 }
 
 .menu.open {
