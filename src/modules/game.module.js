@@ -6,16 +6,22 @@ export class GameModule extends Module {
   }
 
   trigger() {
+    //this.screen.addEventListener("click", (e) => {
+    //this.numderOfClick += 1;
+    
     if (isGameOver) {
       showGame();
     }
+  //});
   }
 }
 
 let isGameOver = true;
+let score = 0; // Переменная для хранения счета
 
 const showGame = () => {
   clearGame();
+  score = 0; // Сброс счетчика при начале новой игры
 
   const gameElement = document.createElement("div");
   gameElement.className = "game";
@@ -47,10 +53,15 @@ const showGame = () => {
 
     if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 140) {
       gameOver();
+    } else if (cactusLeft <= 0) {
+      // Кактус перепрыгнут
+      score++; // Увеличение счета при перепрыгивании кактуса
+      updateScore(); // Обновление отображения счета
     }
   }, 10);
 
   showStartButton();
+  updateScore(); // Инициализация отображения счета
 };
 
 const clearGame = () => {
@@ -78,4 +89,14 @@ const showStartButton = () => {
   });
 
   document.body.append(startButton);
+};
+
+const updateScore = () => {
+  let scoreElement = document.querySelector(".score");
+  if (!scoreElement) {
+    scoreElement = document.createElement("div");
+    scoreElement.className = "score";
+    document.body.append(scoreElement);
+  }
+  scoreElement.textContent = `Счет: ${score}`;
 };
