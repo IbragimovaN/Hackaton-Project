@@ -55,6 +55,7 @@ body {
     width: 500px;
     position: absolute;
     right: 0;
+    bottom: 0;
 }
   
 .timer-block-title {
