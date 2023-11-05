@@ -8,8 +8,9 @@ const menuItems = [
     { id: 4, text: 'Постичай клики' },
     { id: 5, text: 'Поиграть в игру' }
 ];
-const contextMenu = new ContextMenu('.menu', menuItems);
-contextMenu.render();
+const contextMenu = new ContextMenu('.menu');
 contextMenu.open();
-contextMenu.close();
+contextMenu.render();
 contextMenu.add();
+
+contextMenu.close();
