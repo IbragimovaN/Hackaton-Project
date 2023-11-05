@@ -1,159 +1,161 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
-    width: 100%;
-    /* padding: 2rem; */
-    background-color: #eee;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  width: 100%;
+  /* padding: 2rem; */
+  background-color: #eee;
 }
 
 .menu {
-    position: fixed;
-    z-index: 1000;
-    width: 170px;
-    background: rgb(96 95 246);
-    border-radius: 5px;
-    list-style: none;
-    color: #eee;
+  position: fixed;
+  z-index: 1000;
+  width: 170px;
+  background: #605FF6;
+  border-radius: 5px;
+  list-style: none;
+  color: #eee;
 }
 
-.hidden{
-    display: none !important;
+.hidden {
+  display: none !important;
 }
 
 .menu.open {
-    display: block;
+  display: block;
 }
 
 .menu .menu-item {
-    padding: 8px 10px;
-    font-size: 1rem;
-    color: #eee;
-    cursor: pointer;
-    transition: background-color .2s ease-in;
-    border-radius: inherit;
+  padding: 8px 10px;
+  font-size: 1rem;
+  color: #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+  border-radius: inherit;
 }
 
 .menu .menu-item:hover {
-    background: rgb(40, 40, 169);
+  background: #2828A9;
 }
 
 /*начало: стили для модуля Таймер обратного отсчета*/
 .timer-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(90deg, #7973ad 0%, #9c9ec9 100%);
-    width: 500px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(90deg, #7973ad 0%, #9c9ec9 100%);
+  width: 500px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
-
-  
 .timer-block-title {
-    color: #2828A9;
-    font-size: 3rem;
-    line-height: 3rem;
-    margin: 10px;
-  }
-  
+  color: #2828a9;
+  font-size: 3rem;
+  line-height: 3rem;
+  margin: 10px;
+}
+
 .timer-block-text {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    margin-bottom: 10px;
-  }
-  
+  color: var(--text-color);
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  margin-bottom: 10px;
+}
+
 .timer-block-count {
-    color: #2828A9;
-    font-size: 5rem;
-    font-weight: bold;
-    margin: 10px;
-  }
-    
+  color: #2828a9;
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 10px;
+}
+
 .timer-block-input {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    font-weight: bold;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 5px 5px 5px 10px;
-  }
-  
+  color: var(--text-color);
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 5px 5px 5px 10px;
+}
+
 .timer-block-div-buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px;
-  }
-  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
 .timer-block-button {
-    border-radius: 10px;
-    border: 2px solid #c0c0c0;
-    color: #fff;
-    cursor: pointer;
-    margin-right: 10px;
-    font-weight: bold;
-    background-color: transparent;
-    padding: 0.5rem 1rem;
-    font-size: 1.5rem;
-  }
-  
+  border-radius: 10px;
+  border: 2px solid #c0c0c0;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 10px;
+  font-weight: bold;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+}
+
 .timer-block-button:hover {
-    border: 2px solid #2828A9;
-    color: #2828A9;
-  }
+  border: 2px solid #2828a9;
+  color: #2828a9;
+}
 /* конец: стили для модуля Таймер обратного отсчета*/
 
 /* начало стили для модуля главного экрана*/
-.header{
+.header {
   width: 100%;
   height: 35%;
-  background-color: #DEDBFB;
+  background-color: #dedbfb;
   border-radius: 12px;
-  
+  padding-top: 10px;
+  align-items: center;
+  text-align: center;
+  font-family: "Golos", "Jost", "Lato", Helvetica, Arial, sans-serif;
 }
-.main-box{
+.main-box {
   margin-top: 50px;
   background: #dcdaf7;
   border-radius: 12px;
-  height: 260px;
+  height: 160px;
   width: 400px;
   transition: transform 0.2s ease-in-out;
   margin: 50px auto;
   font-size: 30px;
-
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: "Golos", "Jost", "Lato", Helvetica, Arial, sans-serif;
 }
-.main-box:hover{
+.main-box:hover {
   transform: scale(1.1);
 }
-.main-wrapper-img{
+.main-wrapper-img {
   position: absolute;
   top: 20px;
   right: 20px;
   border-radius: 12px;
-  border:  1px solid black;
+  border: 1px solid black;
   height: 170px;
   width: 120px;
 }
-
 /* конец: стили для модуля главного экрана*/
 
 /* Начало: стилизация для модуля Рандомный звук */
-
 .audio-button {
   position: fixed;
   top: 50%;
@@ -180,8 +182,7 @@ body {
   top: 0;
   padding: 0;
 }
-
-img.random-image {
+.img.random-image {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -195,15 +196,16 @@ img.random-image {
   width: 40px;
   height: 40px;
   border-radius: 40px;
-  position: relative;
+  position: absolute;
   z-index: 1;
   margin: 20px auto;
   cursor: pointer;
 }
+
 .cl-btn-7:before {
   content: '+';
   color: #337ab7;
-  position: absolute;
+  position: fixed;
   z-index: 2;
   transform: rotate(45deg);
   font-size: 50px;
@@ -212,97 +214,16 @@ img.random-image {
   left: 6px;
   transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
 }
-.cl-btn-7:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  background: #605ff6;
-  z-index: 1;
-  transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
-  transform: scale(0.01);
-}
-.cl-btn-7:hover:after {
-  transform: scale(1);
-}
+
 .cl-btn-7:hover:before {
   transform: scale(0.8) rotate(45deg);
-  color: #fff;
+  color: #080808;
 }
+
 .screen {
-    position: absolute;
-    height:100%;
-    width:100%;
-    top:0 ;
-    z-index: 50;
-}
-.cl-btn-7 {
-    width: 40px;
-    height: 40px;
-    border-radius: 40px;
-    position: relative;
-    z-index: 1;
-    margin: 20px auto;
-    cursor: pointer;
-}
-.cl-btn-7:before {
-    content: '+';
-    color: #337AB7;
-    position: absolute;
-    z-index: 2;
-    transform: rotate(45deg);
-    font-size: 50px;
-    line-height: 1;
-    top: -5px;
-    left: 6px;
-    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
-}
-.cl-btn-7:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    background: #605FF6;
-    z-index: 1;
-    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
-    transform: scale(0.01);
-}.cl-btn-7 {
-    width: 40px;
-    height: 40px;
-    border-radius: 40px;
-    position: relative;
-    z-index: 1;
-    margin: 20px auto;
-    cursor: pointer;
-}
-.cl-btn-7:before {
-    content: '+';
-    color: #337AB7;
-    position: absolute;
-    z-index: 2;
-    transform: rotate(45deg);
-    font-size: 50px;
-    line-height: 1;
-    top: -5px;
-    left: 6px;
-    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
-}
-.cl-btn-7:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    background: #605FF6;
-    z-index: 1;
-    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
-    transform: scale(0.01);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 50;
 }

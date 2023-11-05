@@ -19,7 +19,7 @@ export class BackgroundModule extends Module {
 
         const titleBig = document.createElement('h1');
         titleBig.classList = 'header-title';
-        titleBig.textContent = 'Чему можно научиться на первом модуле курса Джуниор Frontend-разработчик';
+        titleBig.textContent = 'Чему можно научиться на первом модуле курса Джуниор Frontend-разработчик?';
         header.append(titleBig);
 
         const box = document.createElement('div');
