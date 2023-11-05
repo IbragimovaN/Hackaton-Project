@@ -1,26 +1,50 @@
 import { Menu } from './core/menu'
 import { BackgroundModule } from './modules/background.module'
 import { AudioRandomModule } from './modules/audio.module'
-// import {CountDownTimerModule} from './modules/countdown-timer.module'
+import { CountDownTimerModule } from './modules/countdown-timer.module'
 // import {GameModule} from './modules/game.module';
-// import {ClicksModule} from './modules/clicks.module'
+import { ClicksModule } from './modules/clicks.module'
 
 export class ContextMenu extends Menu {
-  constructor(selector, blocks) {
+  #modules
+  constructor(selector) {
     super(selector)
+    ;(this.backgroundModule = new BackgroundModule(1, 'Сменить цвет экрана')),
+      // this.gameModule = new GameModule(5, 'Поиграть в игру'),
+      (this.audioRandomModule = new AudioRandomModule(
+        2,
+        'Послушать рандомный звук'
+      )),
+      (this.countDownTimerModule = new CountDownTimerModule(
+        3,
+        'Запустить таймер'
+      )),
+      (this.clicksModule = new ClicksModule(4, 'Постичай клики'))
 
-    blocks.forEach((item) => {
-      let listItem = document.createElement('li')
-      listItem.className = 'menu-item'
-      listItem.dataset.type = item.id
-      listItem.innerText = item.text
-      this.el.append(listItem)
-      this.backgroundModule = new BackgroundModule(item.id, item.text)
-      // this.gameModule = new GameModule(item.id, item.text)
-      this.audioRandomModule = new AudioRandomModule(item.id, item.text)
-      // this.countDownTimerModule = new CountDownTimerModule(item.id, item.text)
-      // this.clicksModule = new ClicksModule(item.id, item.text)
+    this.#modules = [
+      this.backgroundModule,
+      // this.gameModule,
+      this.audioRandomModule,
+      this.countDownTimerModule,
+      this.clicksModule,
+    ]
+
+    this.el.addEventListener('click', (event) => {
+      let currentItem = event.target
+      let currentItemId = currentItem.dataset.type
+      if (currentItemId == 1) {
+        this.backgroundModule.trigger()
+      } else if (currentItemId == 2) {
+        this.audioRandomModule.trigger()
+      } else if (currentItemId == 3) {
+        this.countDownTimerModule.trigger()
+      } else if (currentItemId == 4) {
+        this.clicksModule.trigger()
+      } else if (currentItemId == 5) {
+        this.gameModule.trigger()
+      }
     })
+
     this.el.className = 'menu hidden'
   }
   open() {
@@ -57,23 +81,14 @@ export class ContextMenu extends Menu {
     })
   }
   render() {
+    this.backgroundModule.render()
     document.body.append(this.el)
   }
-  add() {
-    this.el.addEventListener('click', (event) => {
-      let currentItem = event.target
-      let currentItemId = currentItem.dataset.type
-      if (currentItemId == 1) {
-        this.backgroundModule.trigger()
-      } else if (currentItemId == 2) {
-        this.audioRandomModule.trigger()
-      } else if (currentItemId == 3) {
-        this.countDownTimerModule.trigger()
-      } else if (currentItemId == 4) {
-        this.clicksModule.trigger()
-      } else if (currentItemId == 5) {
-        this.gameModule.trigger()
-      }
+  add(modules) {
+    modules = this.#modules
+    modules.forEach((item) => {
+      let liHTML = item.toHTML()
+      this.el.insertAdjacentHTML('beforeend', liHTML)
     })
   }
 }

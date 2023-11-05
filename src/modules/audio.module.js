@@ -1,7 +1,8 @@
 import { Module } from '../core/module'
+import { addButtonAndClose } from '../utils'
 
 export class AudioRandomModule extends Module {
-  constructor(type = '2', text = 'Случайный аудио') {
+  constructor(type = '2', text = 'Послушать рандомный звук') {
     super(type, text)
     this.audioPlaying = false
     this.buttonCreated = false
@@ -32,7 +33,7 @@ export class AudioRandomModule extends Module {
     container.className = 'div-container'
 
     const button = document.createElement('button')
-    button.textContent = 'НАЖМИ'
+    button.textContent = 'Случайный звук'
     button.className = 'audio-button'
     container.append(button)
 
@@ -62,5 +63,6 @@ export class AudioRandomModule extends Module {
     })
 
     document.body.append(container)
+    addButtonAndClose(container)
   }
 }

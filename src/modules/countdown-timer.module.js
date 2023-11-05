@@ -46,7 +46,7 @@ export class CountDownTimerModule extends Module {
         
     divButtonsTimerBlock.append(startBtnTimerBlock, stopBtnTimerBlock);
     this.timerContainer.append(titleTimerBlock, textTimerBlock, inputTimerBlock, divButtonsTimerBlock);
-    document.body.append(this.timerContainer);
+    document.body.before(this.timerContainer);
   }
 
   #startTimer(input) {
