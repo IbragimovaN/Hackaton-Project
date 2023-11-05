@@ -136,3 +136,14 @@ body {
 .main-box:hover{
   transform: scale(1.1);
 }
+.main-wrapper-img{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 12px;
+  border:  1px solid black;
+  height: 170px;
+  width: 120px;
+}
+
+/* конец: стили для модуля главного экрана*/

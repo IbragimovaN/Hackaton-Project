@@ -26,6 +26,11 @@ export class BackgroundModule extends Module {
         box.className = 'main-box';
         box.textContent = 'Кликни правой кнопкой мыши по любой части экрана :)';
 
+        for (let i = 0; i < 5; i++) {
+            let wrapperImg = document.createElement('div');
+            wrapperImg.classList = 'main-wrapper-img'
+            header.append(wrapperImg);
+        }
         document.body.append(header, box);
     }
 }
