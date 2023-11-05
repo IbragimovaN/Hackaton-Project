@@ -28,8 +28,8 @@ export class ContextMenu extends Menu {
     open(){
         document.addEventListener('contextmenu', (event) =>{
             event.preventDefault();
-            this.el.style.top = `${event.clientY}px`
-            this.el.style.left = `${event.clientX}px`
+            this.el.style.top = `${(event.clientY)/2}px`
+            this.el.style.left = `${(event.clientX)/2}px`
             this.el.classList.remove('hidden')
         })
         
