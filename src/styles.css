@@ -1,113 +1,146 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
-    width: 100%;
-    padding: 2rem;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
 }
 
 .menu {
-    position: fixed;
-    z-index: 1000;
-    width: 150px;
-    background: #1b1a1a;
-    border-radius: 5px;
-    list-style: none;
-    color: #eee;
+  position: fixed;
+  z-index: 1000;
+  width: 150px;
+  background: #1b1a1a;
+  border-radius: 5px;
+  list-style: none;
+  color: #eee;
 }
 
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
 .menu.open {
-    display: block;
+  display: block;
 }
 
 .menu .menu-item {
-    padding: 8px 10px;
-    font-size: 1rem;
-    color: #eee;
-    cursor: pointer;
-    transition: background-color .2s ease-in;
-    border-radius: inherit;
+  padding: 8px 10px;
+  font-size: 1rem;
+  color: #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+  border-radius: inherit;
 }
 
 .menu .menu-item:hover {
-    background: #343434;
+  background: #343434;
 }
 
 /*начало: стили для модуля Таймер обратного отсчета*/
 .timer-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(90deg, #86aa04 0%, #ce6723 100%);
-    width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(90deg, #86aa04 0%, #ce6723 100%);
+  width: 500px;
 }
-  
+
 .timer-block-title {
-    color: #eb0d36;
-    font-size: 3rem;
-    line-height: 3rem;
-    margin: 10px;
-  }
-  
+  color: #eb0d36;
+  font-size: 3rem;
+  line-height: 3rem;
+  margin: 10px;
+}
+
 .timer-block-text {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    margin-bottom: 10px;
-  }
-  
+  color: var(--text-color);
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  margin-bottom: 10px;
+}
+
 .timer-block-count {
-    color: #eb0d36;;
-    font-size: 5rem;
-    font-weight: bold;
-    margin: 10px;
-  }
-    
+  color: #eb0d36;
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 10px;
+}
+
 .timer-block-input {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    font-weight: bold;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 5px 5px 5px 10px;
-  }
-  
+  color: var(--text-color);
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 5px 5px 5px 10px;
+}
+
 .timer-block-div-buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px;
-  }
-  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
 .timer-block-button {
-    border-radius: 10px;
-    border: 2px solid #c0c0c0;
-    color: #fff;
-    cursor: pointer;
-    margin-right: 10px;
-    font-weight: bold;
-    background-color: transparent;
-    padding: 0.5rem 1rem;
-    font-size: 1.5rem;
-  }
-  
+  border-radius: 10px;
+  border: 2px solid #c0c0c0;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 10px;
+  font-weight: bold;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+}
+
 .timer-block-button:hover {
-    border: 2px solid #eb0d36;
-    color: #eb0d36;
-  }
-/* конец: стили для модуля Таймер обратного отсчета*/  
+  border: 2px solid #eb0d36;
+  color: #eb0d36;
+}
+/* конец: стили для модуля Таймер обратного отсчета*/
+
+/* Начало: стилизация для модуля Рандомный звук */
+img.random-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+}
+/* Конец: стилизация для модуля Рандомный звук */
+/* Начало: стилизация для модуля Рандомный звук */
+.audio-button {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  border: 2px solid #c0c0c0;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 10px;
+  font-weight: bold;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+}
+
+.audio-button {
+  border: 2px solid #a16772;
+  color: #8a404e;
+}
+/* Конец: стилизация для модуля Рандомный звук */
