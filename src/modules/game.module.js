@@ -28,8 +28,8 @@ let gameContainer;
 let gameOverDiv;
 let scoreElement;
 let startButton;
-let dinoElement
-let cactusElement
+let dinoElement;
+let cactusElement;
 
 let closeButton; // Добавляем кнопку для закрытия
 

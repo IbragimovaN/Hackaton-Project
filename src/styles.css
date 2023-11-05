@@ -126,6 +126,7 @@ body {
   align-items: center;
   text-align: left;
   font-family: "Golos", "Jost", "Lato", Helvetica, Arial, sans-serif;
+  padding-left: 20px;
 }
 .main-box {
   margin-top: 50px;
