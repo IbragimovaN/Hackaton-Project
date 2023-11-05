@@ -11,7 +11,8 @@ body {
     font-family: 'Roboto', sans-serif;
     height: 100vh;
     width: 100%;
-    padding: 2rem;
+    /* padding: 2rem; */
+    background-color: #eee;
 }
 
 .menu {
@@ -45,64 +46,3 @@ body {
     background: #343434;
 }
 
-/*стилизация игры*/
-.game {
-    width: 600px;
-    height: 200px;
-    border-bottom: 1px solid #000;
-    margin: auto;
-}
-
-/*стилизация дино*/
-#dino {
-    width: 50px;
-    height: 50px;
-    background-image: url('/Hackaton-Project/src/img/dino.png');
-    background-size: 50px 50px;
-    position: relative;
-    top: 150px;
-}
-
-/*стилизация кактуса*/
-#cactus {
-    width: 20px;
-    height: 40px;
-    background-image: url('/Hackaton-Project/src/img/cactus.png');
-    background-size: 20px 40px;
-    position: relative;
-    top: 110px;
-    left: 580px;
-    animation: cactusMov 1s infinite linear;
-}
-
-/*для анимации кактуса*/
-@keyframes cactusMov {
-    0% {
-        left: 580px;
-    }
-    100% {
-        left: -20px;
-    }
-}
-
-/*для анимации прыжка дино*/
-.jump {
-    animation: jump 0.5s linear;
-}
-@keyframes jump {
-    0% {
-        top: 150px;
-    }
-    30% {
-        top: 130px;
-    }
-    50% {
-        top: 80px;
-    }
-    80% {
-        top: 130px;
-    }
-    100% {
-        top: 150px;
-    }
-}

@@ -1,38 +1,75 @@
-import { Module } from '../core/module.js';
+import { Module } from "../core/module.js";
+import "./gameStyles.css"
 
 export class GameModule extends Module {
   constructor(type, text) {
     super(type, text);
   }
-
+  
   trigger() {
     if (isGameOver) {
-      showGame();
+      initGame();
     }
   }
 }
 
 let isGameOver = true;
-let score = 0; // Переменная для хранения счета
+let score = 0;
+let scoreTimer;
 
-const showGame = () => {
-  clearGame();
-  score = 0; // Сброс счетчика при начале новой игры
+let gameElement;
+let gameContainer;
+let gameOverDiv;
+let scoreElement;
+let startButton;
+let dinoElement
+let cactusElement
 
-  const gameElement = document.createElement("div");
+const initGame = () => {
+  gameContainer = document.createElement("div")
+  gameContainer.classList.add("game-container")
+  document.body.appendChild(gameContainer)
+  
+  startButton = document.createElement("button");
+  startButton.className = "start-button";
+  const spanElement = document.createElement("span");
+  spanElement.textContent = "Старт";
+  startButton.appendChild(spanElement);
+  
+  startButton.addEventListener("click", () => {
+    if (isGameOver) {
+      showGame();
+    }
+  });
+  
+  gameContainer.appendChild(startButton);
+  
+  gameOverDiv = document.createElement("div");
+  gameOverDiv.className = "game-over-div";
+  const gameOverImage = document.createElement("img");
+  gameOverImage.src = "/src/img/game_over_2.png";
+  gameOverImage.className = "game-over-image";
+  gameOverDiv.appendChild(gameOverImage);
+  gameContainer.appendChild(gameOverDiv);
+  
+  gameElement = document.createElement("div");
   gameElement.className = "game";
-
-  const dinoElement = document.createElement("div");
+  
+  dinoElement = document.createElement("div");
   dinoElement.id = "dino";
-  gameElement.append(dinoElement);
-
-  const cactusElement = document.createElement("div");
+  gameElement.appendChild(dinoElement);
+  
+  cactusElement = document.createElement("div");
   cactusElement.id = "cactus";
-  gameElement.append(cactusElement);
+  gameElement.appendChild(cactusElement);
+  
+  gameContainer.appendChild(gameElement);
+  
+  scoreElement = document.createElement("div");
+  scoreElement.className = "score";
+  gameContainer.appendChild(scoreElement);
 
-  document.body.append(gameElement);
 
-  document.addEventListener("keydown", () => jump());
 
   const jump = () => {
     if (dinoElement.classList != "jump") {
@@ -43,56 +80,86 @@ const showGame = () => {
     }, 300);
   };
 
-  const isAlive = setInterval(() => {
-    const dinoTop = parseInt(window.getComputedStyle(dinoElement).getPropertyValue("top"));
-    const cactusLeft = parseInt(window.getComputedStyle(cactusElement).getPropertyValue("left"));
+  document.addEventListener("keydown", (event) => {
+    jump();
+  });
+  
+}
 
-    if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 140) {
+const showGame = () => {
+  startButton.style.display = "none"
+  gameElement.style.display = "block"
+  
+
+  score = 0;
+  startScoreTimer();
+  isGameOver = false;
+
+  const isAlive = setInterval(() => {
+    const dinoComputedStyle = window.getComputedStyle(dinoElement);
+    const dinoTop = parseInt(dinoComputedStyle.getPropertyValue("top"));
+
+    const dinoLeft = parseInt(dinoComputedStyle.getPropertyValue("left"));
+
+    const dinoWidth = parseInt(dinoComputedStyle.getPropertyValue("width"));
+
+    const cactusLeft = parseInt(
+      window.getComputedStyle(cactusElement).getPropertyValue("left")
+    );
+
+
+    if (
+      dinoLeft + dinoWidth > cactusLeft &&
+      dinoTop >= 240 &&
+      !(cactusLeft < 80)
+    ) {
+      clearInterval(isAlive);
       gameOver();
-    } else if (cactusLeft <= 0) {
-      // Кактус перепрыгнут
-      score++; // Увеличение счета при перепрыгивании кактуса
-      updateScore(); // Обновление отображения счета
     }
   }, 10);
 
-  showStartButton();
-  updateScore(); // Инициализация отображения счета
+  hideStartButton();
+  updateScore();
 };
 
 const clearGame = () => {
-  const gameElement = document.querySelector(".game");
-  if (gameElement) {
-    gameElement.remove();
-  }
+  gameElement.style.display = "none"
 };
 
 const gameOver = () => {
   isGameOver = true;
   clearGame();
-  alert("GAME OVER!! Нажмите 'Старт', чтобы начать игру заново.");
+  stopScoreTimer();
+  
+  gameOverDiv.style.display = "block";
+
+  setTimeout(() => {
+    gameOverDiv.style.display = "none";
+    startButton.style.display = "flex"
+    showStartButton();
+  }, 3000);
 };
 
 const showStartButton = () => {
-  const startButton = document.createElement("button");
-  startButton.textContent = "Старт";
-  startButton.className = "start-button";
-
-  startButton.addEventListener("click", () => {
-    if (isGameOver) {
-      showGame();
-    }
-  });
-
-  document.body.append(startButton);
+  startButton.style.display = "flex"
 };
 
 const updateScore = () => {
   let scoreElement = document.querySelector(".score");
-  if (!scoreElement) {
-    scoreElement = document.createElement("div");
-    scoreElement.className = "score";
-    document.body.append(scoreElement);
-  }
-  scoreElement.textContent = `Счет: ${score}`;
+  scoreElement.textContent = `Время игры: ${Math.floor(score)}`;
+};
+
+function startScoreTimer() {
+  scoreTimer = setInterval(() => {
+    score += 1; 
+    updateScore();
+  }, 1000);
+}
+
+function stopScoreTimer() {
+  clearInterval(scoreTimer);
+}
+
+const hideStartButton = () => {
+  startButton.style.display = "none"
 };
