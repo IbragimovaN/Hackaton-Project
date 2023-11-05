@@ -122,25 +122,3 @@ img.random-image {
   height: 450px;
 }
 /* Конец: стилизация для модуля Рандомный звук */
-/* Начало: стилизация для модуля Рандомный звук */
-.audio-button {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 10px;
-  border: 2px solid #c0c0c0;
-  color: #fff;
-  cursor: pointer;
-  margin-right: 10px;
-  font-weight: bold;
-  background-color: transparent;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
-}
-
-.audio-button {
-  border: 2px solid #a16772;
-  color: #8a404e;
-}
-/* Конец: стилизация для модуля Рандомный звук */

@@ -28,10 +28,13 @@ export class AudioRandomModule extends Module {
   }
 
   createButton() {
+    const container = document.createElement('div')
+    container.className = 'div-container'
+
     const button = document.createElement('button')
     button.textContent = 'НАЖМИ'
     button.className = 'audio-button'
-    document.body.append(button)
+    container.append(button)
 
     button.addEventListener('click', () => {
       button.style.display = 'none'
@@ -42,10 +45,9 @@ export class AudioRandomModule extends Module {
       const currentImage = document.createElement('img')
       currentImage.src = image
       currentImage.classList.add('random-image')
-      document.body.append(currentImage)
+      container.append(currentImage)
 
       const currentAudio = new Audio(audio)
-
       currentAudio.play().catch((error) => {
         console.error(error)
       })
@@ -58,5 +60,7 @@ export class AudioRandomModule extends Module {
         this.audioPlaying = false
       }, 1000)
     })
+
+    document.body.append(container)
   }
 }
