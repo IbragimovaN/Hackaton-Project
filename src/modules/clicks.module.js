@@ -13,6 +13,7 @@ export class ClicksModule extends Module {
           this.numderOfClick ++;
           this.blockNumderOfClick.style.fontSize = Math.floor(Math.random() * 1920 / 3) + "px";
           this.blockNumderOfClick.style.position = "fixed";
+          this.blockNumderOfClick.style.color = "#605FF6";
           this.screen.style.backgroundColor = "#DEDBFB";
           this.screen.setAttribute("onmousedown", "return false");
           this.screen.setAttribute("onselectstart", "return false");
