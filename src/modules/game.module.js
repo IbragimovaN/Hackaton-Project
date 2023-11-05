@@ -1,14 +1,17 @@
 import { Module } from "../core/module.js";
 import "./gameStyles.css"
 
+let gameIsInited = false;
+
 export class GameModule extends Module {
   constructor(type, text) {
     super(type, text);
   }
   
   trigger() {
-    if (isGameOver) {
+    if (isGameOver && !gameIsInited) {
       initGame();
+      gameIsInited = true;
     }
   }
 }
