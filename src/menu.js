@@ -11,15 +11,15 @@ export class ContextMenu extends Menu {
         super(selector);
 
             this.backgroundModule = new BackgroundModule(1, 'Сменить цвет экрана'),
-             this.gameModule = new GameModule(5, 'Поиграть в игру'),
-            // this.audioRandomModule = new AudioRandomModule(2, 'Послушать рандомный звук'),
+            this.gameModule = new GameModule(5, 'Поиграть в игру'),
+            this.audioRandomModule = new AudioRandomModule(2, 'Послушать рандомный звук'),
             this.countDownTimerModule = new CountDownTimerModule(3, 'Запустить таймер'),
             this.clicksModule = new ClicksModule(4, 'Постичай клики')
 
             this.#modules = [
                 this.backgroundModule,
-                 this.gameModule,
-                // this.audioRandomModule,
+                this.gameModule,
+                this.audioRandomModule,
                 this.countDownTimerModule,
                 this.clicksModule
             ]

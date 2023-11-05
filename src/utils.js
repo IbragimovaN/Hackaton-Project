@@ -13,12 +13,10 @@ export function getRandomColor() {
 export function addButtonAndClose (container){
   const closeButton = document.createElement("div");
   closeButton.className = "cl-btn-7";
-  
   container.append(closeButton)
 
   closeButton.addEventListener("click", () => {
       container.classList.add('hidden')
       location.reload()
-     console.log(container)
   });
 }
