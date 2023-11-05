@@ -26,7 +26,7 @@ body {
 }
 
 .hidden{
-    display: none;
+    display: none !important;
 }
 
 .menu.open {
@@ -57,6 +57,8 @@ body {
     position: absolute;
     right: 0;
 }
+
+
   
 .timer-block-title {
     color: #2828A9;

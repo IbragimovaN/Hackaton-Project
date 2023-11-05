@@ -1,5 +1,7 @@
 import { Module } from "../core/module.js";
-import "./gameStyles.css"
+import "../styles/gameStyles.css";
+import { addButtonAndClose } from "../utils.js";
+
 
 let gameIsInited = false;
 
@@ -16,6 +18,7 @@ export class GameModule extends Module {
   }
 }
 
+
 let isGameOver = true;
 let score = 0;
 let scoreTimer;
@@ -28,7 +31,12 @@ let startButton;
 let dinoElement
 let cactusElement
 
+let closeButton; // Добавляем кнопку для закрытия
+
 const initGame = () => {
+
+  
+  // контейнер для модуля игры
   gameContainer = document.createElement("div")
   gameContainer.classList.add("game-container")
   document.body.appendChild(gameContainer)
@@ -46,7 +54,8 @@ const initGame = () => {
   });
   
   gameContainer.appendChild(startButton);
-  
+
+   
   gameOverDiv = document.createElement("div");
   gameOverDiv.className = "game-over-div";
   const gameOverImage = document.createElement("img");
@@ -86,6 +95,8 @@ const initGame = () => {
   document.addEventListener("keydown", (event) => {
     jump();
   });
+
+  addButtonAndClose(gameContainer)
   
 }
 
@@ -123,6 +134,8 @@ const showGame = () => {
 
   hideStartButton();
   updateScore();
+  
+
 };
 
 const clearGame = () => {
@@ -166,3 +179,5 @@ function stopScoreTimer() {
 const hideStartButton = () => {
   startButton.style.display = "none"
 };
+
+
