@@ -1,5 +1,5 @@
-import './styles.css'
-import {ContextMenu} from './menu'
+import './styles.css';
+import {ContextMenu} from './menu';
 
 const menuItems = [
     { id: 1, text: 'Сменить цвет экрана' },
@@ -9,7 +9,7 @@ const menuItems = [
     { id: 5, text: 'Поиграть в игру' }
 ];
 const contextMenu = new ContextMenu('.menu', menuItems);
-contextMenu.render()
-contextMenu.open()
-contextMenu.close()
-contextMenu.add()
+contextMenu.render();
+contextMenu.open();
+contextMenu.close();
+contextMenu.add();

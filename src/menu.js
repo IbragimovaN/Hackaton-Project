@@ -1,13 +1,13 @@
 import {Menu} from './core/menu';
 import { BackgroundModule } from './modules/background.module';
 // import {AudioRandomModule} from './modules/AudioRandomModule';
-import {CountDownTimerModule} from './modules/countdown-timer.module'
+import {CountDownTimerModule} from './modules/countdown-timer.module';
 // import {GameModule} from './modules/game.module';
-// import {ClicksModule} from './modules/clicks.module'
+// import {ClicksModule} from './modules/clicks.module';
 
 export class ContextMenu extends Menu {
     constructor(selector,blocks) {
-        super(selector)
+        super(selector);
 
         blocks.forEach(item => {
             let listItem = document.createElement('li');
@@ -15,14 +15,14 @@ export class ContextMenu extends Menu {
             listItem.dataset.type = item.id;
             listItem.innerText = item.text;
             this.el.append(listItem);
-            this.backgroundModule = new BackgroundModule(item.id, item.text)
-            // this.gameModule = new GameModule(item.id, item.text)
-            // this.audioRandomModule = new AudioRandomModule(item.id, item.text)
-            this.countDownTimerModule = new CountDownTimerModule(item.id, item.text)
-            // this.clicksModule = new ClicksModule(item.id, item.text)
+            this.backgroundModule = new BackgroundModule(item.id, item.text);
+            // this.gameModule = new GameModule(item.id, item.text);
+            // this.audioRandomModule = new AudioRandomModule(item.id, item.text);
+            this.countDownTimerModule = new CountDownTimerModule(item.id, item.text);
+            // this.clicksModule = new ClicksModule(item.id, item.text);
         
         }) 
-        this.el.className = 'menu hidden'
+        this.el.className = 'menu hidden';
         
     }
     open(){
@@ -55,29 +55,30 @@ export class ContextMenu extends Menu {
     close(){
         document.addEventListener('click', (event) =>{
             if(event.button !== 2){
-                this.el.classList.add('hidden')
+                this.el.classList.add('hidden');
             }
         })
         
     }
     render(){
-            document.body.append(this.el)
+        this.backgroundModule.render();
+        document.body.append(this.el);
     
     }
     add(){
         this.el.addEventListener('click', (event) =>{
-            let currentItem = event.target
-            let currentItemId = currentItem.dataset.type
+            let currentItem = event.target;
+            let currentItemId = currentItem.dataset.type;
             if (currentItemId == 1){
-                this.backgroundModule.trigger()
+                this.backgroundModule.trigger();
             } else if (currentItemId == 2){
-                this.audioRandomModule.trigger()
+                this.audioRandomModule.trigger();
             }else if(currentItemId == 3){
-                this.countDownTimerModule.trigger()
+                this.countDownTimerModule.trigger();
             } else if(currentItemId == 4){
-                this.clicksModule.trigger()
+                this.clicksModule.trigger();
             }else if (currentItemId == 5){
-                this.gameModule.trigger()
+                this.gameModule.trigger();
             }
         })
     }
