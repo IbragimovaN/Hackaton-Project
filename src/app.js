@@ -1,3 +1,4 @@
+
 import "./styles.css";
 import { ContextMenu } from "./menu";
 
@@ -13,4 +14,5 @@ contextMenu.open();
 contextMenu.render();
 contextMenu.add();
 
-contextMenu.close();
+
+contextMenu.close()
