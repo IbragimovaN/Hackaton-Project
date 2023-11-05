@@ -9,6 +9,9 @@ export class BackgroundModule extends Module {
         document.body.style.background = getRandomColor();
     }
     render(){
+        const startContent = document.createElement("div");
+        startContent.id = "start-content";
+
         const header = document.createElement('div');
         header.classList = 'header';
 
@@ -31,7 +34,8 @@ export class BackgroundModule extends Module {
             wrapperImg.classList = 'main-wrapper-img'
             header.append(wrapperImg);
         }
-        document.body.append(header, box);
+        startContent.append(header, box);
+        document.body.append(startContent);
     }
 }
 

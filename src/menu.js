@@ -38,10 +38,11 @@ export class ContextMenu extends Menu {
             }else if (currentItemId == 5){
                 this.gameModule.trigger();
             }
+            const startContent = document.querySelector("#start-content");
+            startContent.remove();
         })
 
         this.el.className = 'menu hidden';
-        
     }
     open(){
         document.addEventListener('contextmenu', (event) =>{
